@@ -1,1 +1,3 @@
-﻿<Properties />
+﻿<Properties>
+  <WatchEntry0 value="Browser(&quot;Browser&quot;).Page(&quot;PPM Menu&quot;).WebElement(&quot;Your Request is Created&quot;).Exist" />
+</Properties>

@@ -1,5 +1,6 @@
 ﻿'===========================================================
 '20201007 - DJ: Initial credation
+'20210107 - DJ: Added clicking the logout link and a synchronization of the proposal creation status message.
 '===========================================================
 
 '===========================================================
@@ -21,7 +22,7 @@ fnRandomNumberWithDateTimeStamp = Int(sDate & sMonth & sYear & sHour & sMinute &
 '======================== End Function =====================
 End Function
 
-Dim BrowserExecutable, ProposalName, ExecutiveOverview
+Dim BrowserExecutable, ProposalName, ExecutiveOverview, rc
 
 While Browser("CreationTime:=0").Exist(0)   												'Loop to close all open browsers
 	Browser("CreationTime:=0").Close 
@@ -89,6 +90,7 @@ Browser("Browser").Page("PPM Page").WebEdit("Business Objective Combobox").Set D
 'BP:  Click the Submit text
 '===========================================================================================
 Browser("Browser").Page("PPM Page").Link("Submit").Click
+rc = Browser("Browser").Page("PPM Menu").WebElement("Your Request is Created").Exist(30)
 AppContext.Sync																				'Wait for the browser to stop spinning
 
 '===========================================================================================
@@ -96,6 +98,7 @@ AppContext.Sync																				'Wait for the browser to stop spinning
 '===========================================================================================
 Browser("Browser").Page("PPM Menu").WebElement("menuUserIcon").Click
 AppContext.Sync																				'Wait for the browser to stop spinning
+Browser("Browser").Page("PPM Menu").Link("Sign Out").Click
 
 AppContext.Close																			'Close the application at the end of your script
 
