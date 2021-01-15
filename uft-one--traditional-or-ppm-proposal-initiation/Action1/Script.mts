@@ -1,6 +1,7 @@
 ﻿'===========================================================
 '20201007 - DJ: Initial credation
 '20210107 - DJ: Added clicking the logout link and a synchronization of the proposal creation status message.
+'20210115 - DJ: Disabled smart identification for runs
 '===========================================================
 
 '===========================================================
